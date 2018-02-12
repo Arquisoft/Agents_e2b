@@ -9,7 +9,13 @@
 
 Skeleton of participants module
 
-# Authors
+# Authors 2018
+
+- Fernando Sánchez Canella (UO252469)
+- Pelayo Rodriguez Garcia (UO251634)
+- Jorge Rionda ()
+
+# Authors 2017
 
 - David Lorenzo González (UO244795)
 - Martín Peláez Díaz (UO236974)
