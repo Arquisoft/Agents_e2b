@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Participant")
-public class Participant {
+@Table(name = "Agent")
+public class Agent {
 
 	// Id generado automáticamente para diferenciar cada uno (para mapear)
 	@Id
@@ -35,7 +35,7 @@ public class Participant {
 	/**
 	 * Constructor vacío (ya que es para mapear)
 	 */
-	Participant() {
+	Agent() {
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class Participant {
 	 * @param direccion
 	 * @param nacionalidad
 	 */
-	public Participant(String nombre, String apellidos, String password, Date fechaNacimiento, String email, String dNI,
+	public Agent(String nombre, String apellidos, String password, Date fechaNacimiento, String email, String dNI,
 			String direccion, String nacionalidad, boolean isAdmin, boolean isPolitician) {
 		super();
 		this.nombre = nombre;
@@ -141,7 +141,7 @@ public class Participant {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Participant other = (Participant) obj;
+		Agent other = (Agent) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
