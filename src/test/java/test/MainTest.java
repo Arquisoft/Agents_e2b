@@ -80,7 +80,7 @@ public class MainTest {
 	public void T2domainModelToString() {
 		Agent participant1 = getParticipant.getAgent("paco@hotmail.com");
 		assertEquals(participant1.toString(),
-				"Participant [nombre=" + participant1.getNombre() + ", apellidos=" + participant1.getApellidos()
+				"Agent [nombre=" + participant1.getNombre() + ", apellidos=" + participant1.getApellidos()
 						+ ", fechaNacimiento=" + participant1.getFechaNacimiento() + ", email="
 						+ participant1.getEmail() + ", DNI=" + participant1.getDNI() + ", direccion="
 						+ participant1.getDireccion() + ", nacionalidad=" + participant1.getNacionalidad() + ", isAdmin=false, isPolitician=false]");
