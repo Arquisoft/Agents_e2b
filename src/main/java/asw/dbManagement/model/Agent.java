@@ -17,7 +17,7 @@ public class Agent {
 	@GeneratedValue
 	private Long id;
 
-	// Atributos del participante
+	// Atributos del agente
 	private String nombre;
 	private String apellidos;
 	private String password;
@@ -152,7 +152,7 @@ public class Agent {
 
 	@Override
 	public String toString() {
-		return "Participant [nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento=" + fechaNacimiento + ", email=" + email + ", DNI=" + DNI + ", direccion="
+		return "Agent [nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento=" + fechaNacimiento + ", email=" + email + ", DNI=" + DNI + ", direccion="
 				+ direccion + ", nacionalidad=" + nacionalidad + ", isAdmin=" + isAdmin + ", isPolitician="
 				+ isPolitician + "]";
 	}

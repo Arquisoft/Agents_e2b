@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 import asw.dbManagement.model.Agent;
-import asw.dbManagement.repository.ParticipantRepository;
+import asw.dbManagement.repository.AgentRepository;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -26,7 +26,7 @@ public class Application {
 	}
 
 	@Bean
-	public CommandLineRunner initDB(ParticipantRepository repository) throws ParseException {
+	public CommandLineRunner initDB(AgentRepository repository) throws ParseException {
 		// Formato para la fecha
 		DateFormat formatter1 = new SimpleDateFormat("mm/DD/yyyy");
 
