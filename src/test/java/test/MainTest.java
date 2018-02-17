@@ -55,7 +55,7 @@ public class MainTest {
 	private RestTemplate template;
 
 	@Autowired
-	private GetAgent getParticipant;
+	private GetAgent getAgent;
 
 	@Before
 	public void setUp() throws Exception {
@@ -65,36 +65,36 @@ public class MainTest {
 
 	@Test
 	public void T1domainModelEqualsTest() {
-		Agent participant1 = getParticipant.getAgent("paco@hotmail.com");
-		Agent participant2 = getParticipant.getAgent("pac@hotmail.com");
-		Agent participant3 = getParticipant.getAgent("paco@hotmail.com");
-		Agent participant4 = getParticipant.getAgent("pepe@gmail.com");
-		assertFalse(participant1.equals(participant2));
-		assertFalse(participant1.equals(4));
-		assertTrue(participant1.equals(participant3));
-		assertTrue(participant1.equals(participant1));
-		assertFalse(participant1.equals(participant4));
+		Agent agent1 = getAgent.getAgent("paco@hotmail.com");
+		Agent agent2 = getAgent.getAgent("pac@hotmail.com");
+		Agent agent3 = getAgent.getAgent("paco@hotmail.com");
+		Agent agent4 = getAgent.getAgent("pepe@gmail.com");
+		assertFalse(agent1.equals(agent2));
+		assertFalse(agent1.equals(4));
+		assertTrue(agent1.equals(agent3));
+		assertTrue(agent1.equals(agent1));
+		assertFalse(agent1.equals(agent4));
 	}
 
 	@Test
 	public void T2domainModelToString() {
-		Agent participant1 = getParticipant.getAgent("paco@hotmail.com");
-		assertEquals(participant1.toString(),
-				"Agent [nombre=" + participant1.getNombre() + ", apellidos=" + participant1.getApellidos()
-						+ ", fechaNacimiento=" + participant1.getFechaNacimiento() + ", email="
-						+ participant1.getEmail() + ", DNI=" + participant1.getDNI() + ", direccion="
-						+ participant1.getDireccion() + ", nacionalidad=" + participant1.getNacionalidad() + ", isAdmin=false, isPolitician=false]");
+		Agent agent1 = getAgent.getAgent("paco@hotmail.com");
+		assertEquals(agent1.toString(),
+				"Agent [nombre=" + agent1.getNombre() + ", apellidos=" + agent1.getApellidos()
+						+ ", fechaNacimiento=" + agent1.getFechaNacimiento() + ", email="
+						+ agent1.getEmail() + ", DNI=" + agent1.getDNI() + ", direccion="
+						+ agent1.getDireccion() + ", nacionalidad=" + agent1.getNacionalidad() + ", isAdmin=false, isPolitician=false]");
 	}
 
 	@Test
 	public void T3domainModelHashCodeTest() {
-		Agent participant1 = getParticipant.getAgent("paco@hotmail.com");
-		Agent participant3 = getParticipant.getAgent("paco@hotmail.com");
-		assertEquals(participant1.hashCode(), participant3.hashCode());
+		Agent agent1 = getAgent.getAgent("paco@hotmail.com");
+		Agent agent3 = getAgent.getAgent("paco@hotmail.com");
+		assertEquals(agent1.hashCode(), agent3.hashCode());
 	}
 
 	@Test
-	public void T4participantExistAndCorrectPasssword() {
+	public void T4AgentExistAndCorrectPasssword() {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 		String userURI = base.toString() + "/user";
 
@@ -112,7 +112,7 @@ public class MainTest {
 	}
 
 	@Test
-	public void T5participantDoNotExist() {
+	public void T5AgentDoNotExist() {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 		String userURI = base.toString() + "/user";
 		String userNotFound = "{\"reason\": \"User not found\"}";
@@ -396,7 +396,7 @@ public class MainTest {
 	}
 
 	@Test
-	public void T22notFoundParticipantPasswordChange() {
+	public void T22notFoundAgentPasswordChange() {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 		String userURI = base.toString() + "/changePassword";
 		String userNotFound = "{\"reason\": \"User not found\"}";
