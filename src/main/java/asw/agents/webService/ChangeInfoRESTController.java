@@ -44,7 +44,7 @@ public class ChangeInfoRESTController implements ChangeInfo {
 		
 		Assert.isSamePassword(password, newPassword);	
 
-		Agent p = getParticipant.getParticipant(email);
+		Agent p = getParticipant.getAgent(email);
 		Assert.isParticipantNull(p);
 		Assert.isPasswordCorrect(password, p);
 
@@ -72,7 +72,7 @@ public class ChangeInfoRESTController implements ChangeInfo {
 
 		Assert.isPasswordEmpty(password);
 		
-		Agent p = getParticipant.getParticipant(email);
+		Agent p = getParticipant.getAgent(email);
 		Assert.isParticipantNull(p);
 		Assert.isPasswordCorrect(password, p);
 		

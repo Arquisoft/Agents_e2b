@@ -37,7 +37,7 @@ public class GetParticipantInfoHTMLController {
 		Assert.isEmailValid(email);
 		Assert.isPasswordEmpty(password);
 
-		Agent participant = getParticipant.getParticipant(email);
+		Agent participant = getParticipant.getAgent(email);
 
 		Assert.isParticipantNull(participant);
 		Assert.isPasswordCorrect(password, participant);

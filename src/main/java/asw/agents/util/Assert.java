@@ -44,18 +44,18 @@ public class Assert {
 	
 	/**
 	 * 
-	 * @param participant
+	 * @param agent
 	 * @return devuelve false si no es null o excepcion
 	 */
-	public static boolean isParticipantNull(Agent participant){
-		if (participant == null) {
+	public static boolean isParticipantNull(Agent agent){
+		if (agent == null) {
 			throw ErrorFactory.getError(Errors.USER_NOT_FOUND);
 		}
 		return false;		
 	}
 	
-	public static boolean isPasswordCorrect(String password,Agent participant){
-		if (!password.equals(participant.getPassword())) {
+	public static boolean isPasswordCorrect(String password,Agent agent){
+		if (!password.equals(agent.getPassword())) {
 			throw ErrorFactory.getError(Errors.INCORRECT_PASSWORD_DO_NOT_MATCH);
 		}
 		return true;
