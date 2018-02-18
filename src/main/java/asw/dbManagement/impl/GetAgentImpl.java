@@ -20,7 +20,7 @@ public class GetAgentImpl implements GetAgent {
 	
 	
 	/**
-	 * Método que devuelve el Participante buscado por email
+	 * Método que devuelve el Agente buscado por email
 	 * Hace uso del método findByEmail (mapeador)
 	 */
 	@Override

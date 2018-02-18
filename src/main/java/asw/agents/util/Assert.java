@@ -47,7 +47,7 @@ public class Assert {
 	 * @param agent
 	 * @return devuelve false si no es null o excepcion
 	 */
-	public static boolean isParticipantNull(Agent agent){
+	public static boolean isAgentNull(Agent agent){
 		if (agent == null) {
 			throw ErrorFactory.getError(Errors.USER_NOT_FOUND);
 		}
