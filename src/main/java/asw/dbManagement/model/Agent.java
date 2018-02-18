@@ -1,7 +1,5 @@
 package asw.dbManagement.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,27 +36,24 @@ public class Agent {
 	Agent() {
 	}
 
-	/**
-	 * Constructor
-	 * 
-	 * @param nombre
-	 * @param apellidos
-	 * @param password
-	 * @param fechaNacimiento
-	 * @param email
-	 * @param dNI
-	 * @param direccion
-	 * @param nacionalidad
-	 */
-	public Agent(String nombre, String apellidos, String password, Date fechaNacimiento, String email, String dNI,
-			String direccion, String nacionalidad, boolean isAdmin, boolean isPolitician) {
+
+	
+	
+
+	public Agent(String nombre, String password,String email, String localizacion,  String ident, Integer kind) {
 		super();
 		this.nombre = nombre;
-
-		this.password = password;
-
+		this.localizacion = localizacion;
 		this.email = email;
+		this.ident = ident;
+		this.password = password;
+		this.kind = kind;
 	}
+	
+	public Agent(String nombre , String email,String password, String ident,  Integer kind) {
+		this(nombre,password, email,"" ,ident, kind);
+	}
+
 
 	public Long getId() {
 		return id;
