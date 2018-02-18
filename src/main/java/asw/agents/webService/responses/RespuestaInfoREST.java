@@ -9,9 +9,9 @@ import asw.dbManagement.model.Agent;
 public class RespuestaInfoREST {	
 	
 	private String name;
-	private String id;
-	private String email;
 	private String location;
+	private String email;
+	private String id;
 	private String kind;
 	private int kindCode;
 	

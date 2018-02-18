@@ -18,9 +18,10 @@ public class PeticionInfoREST {
 
 	}
 	
-	public PeticionInfoREST(String login,String password){
+	public PeticionInfoREST(String login,String password,String kind){
 		this.login = login;
 		this.password = password;
+		this.kind = kind;
 	}
 
 	public String getLogin() {

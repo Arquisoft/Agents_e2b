@@ -4,6 +4,7 @@ import asw.agents.webService.responses.errors.ErrorResponse;
 import asw.agents.webService.responses.errors.IncorrectPasswordErrorResponse;
 import asw.agents.webService.responses.errors.PasswordDoNotMatchErrorResponse;
 import asw.agents.webService.responses.errors.RequiredEmailErrorResponse;
+import asw.agents.webService.responses.errors.RequiredKindErrorResponse;
 import asw.agents.webService.responses.errors.RequiredPasswordErrorResponse;
 import asw.agents.webService.responses.errors.SameEmailErrorResponse;
 import asw.agents.webService.responses.errors.UnknownErrorResponse;
@@ -20,7 +21,9 @@ public class ErrorFactory {
 		USER_NOT_FOUND,
 		WRONG_EMAIL_STYLE,
 		INCORRECT_PASSWORD_DO_NOT_MATCH,
-		SAME_EMAIL
+		SAME_EMAIL, 
+		REQUIRED_KIND, 
+		INCORRECT_KIND_DO_NOT_MATCH
 	}
 
 	// Generar Constructor privado no queremos que se pueda tener varias
@@ -37,6 +40,7 @@ public class ErrorFactory {
 		case REQUIRED_PASSWORD:
 			return new RequiredPasswordErrorResponse();
 		case USER_NOT_FOUND:
+		case INCORRECT_KIND_DO_NOT_MATCH:
 			return new UserNotFoundResponse();
 		case WRONG_EMAIL_STYLE:
 			return new WrongEmailStyleErrorResponse();
@@ -44,6 +48,8 @@ public class ErrorFactory {
 			return new PasswordDoNotMatchErrorResponse();
 		case SAME_EMAIL:
 			return new SameEmailErrorResponse();
+		case REQUIRED_KIND:
+			return new RequiredKindErrorResponse();
 		default:// en caso de no conocer el error.
 			return new UnknownErrorResponse();
 		}

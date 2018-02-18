@@ -24,6 +24,13 @@ public class Assert {
 		else
 			return false;
 	}
+	
+	public static boolean isKindEmpty(String kind) {
+		if(kind.trim().isEmpty())
+			throw ErrorFactory.getError(Errors.REQUIRED_KIND);
+		else
+			return false;
+	}
 
 	/**
 	 * Comprobacion de si el correo es valido
@@ -73,5 +80,13 @@ public class Assert {
 			throw ErrorFactory.getError(Errors.SAME_EMAIL);
 		}
 		return true;
+	}
+
+	public static boolean isKindCorrect(String kind, Agent agent) {
+		if (!kind.equals(agent.getKind())) {
+			throw ErrorFactory.getError(Errors.INCORRECT_KIND_DO_NOT_MATCH);
+		}
+		return true;
+		
 	}
 }
