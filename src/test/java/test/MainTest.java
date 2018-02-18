@@ -454,17 +454,17 @@ public class MainTest {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 		String userURI = base.toString() + "/changeEmail";
 		
-		String correctChange = "{\"participant\":\"pac@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
+		String correctChange = "{\"agent\":\"pac@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
 		response = template.postForEntity(userURI, new PeticionChangeEmailREST("paco@hotmail.com", "123456", "pac@hotmail.com"),
 				String.class);
 		assertThat(response.getBody(), equalTo(correctChange));
 
-		correctChange = "{\"participant\":\"pepe@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
+		correctChange = "{\"agent\":\"pepe@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
 		response = template.postForEntity(userURI, new PeticionChangeEmailREST("pepe@gmail.com", "123456", "pepe@hotmail.com"),
 				String.class);
 		assertThat(response.getBody(), equalTo(correctChange));
 
-		correctChange = "{\"participant\":\"fhfyg@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
+		correctChange = "{\"agent\":\"fhfyg@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
 		response = template.postForEntity(userURI, new PeticionChangeEmailREST("carmen@yahoo.com", "123456", "fhfyg@hotmail.com"),
 				String.class);
 		assertThat(response.getBody(), equalTo(correctChange));
@@ -474,7 +474,7 @@ public class MainTest {
 	public void correctPasswordChange() {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
 		String userURI = base.toString() + "/changePassword";
-		String correctPassword = "{\"participant\":\"isabel@gmail.com\",\"message\":\"contraseña actualizada correctamente\"}";
+		String correctPassword = "{\"agent\":\"isabel@gmail.com\",\"message\":\"contraseña actualizada correctamente\"}";
 
 		response = template.postForEntity(userURI,
 				new PeticionChangePasswordREST("isabel@gmail.com", "123456", "djfhr"), String.class);
@@ -487,7 +487,7 @@ public class MainTest {
 		String userURI = base.toString() + "/changePassword";
 		String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
 				+ "<ChangeInfoResponse><message>contraseÃ±a actualizada correctamente</message>"
-				+ "<participant>isabel@gmail.com</participant></ChangeInfoResponse>";
+				+ "<agent>isabel@gmail.com</agent></ChangeInfoResponse>";
 
 		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
 		interceptors.add(new AcceptInterceptor());
@@ -505,7 +505,7 @@ public class MainTest {
 		String userURI = base.toString() + "/changeEmail";
 		String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
 				+ "<ChangeInfoResponse><message>email actualizado correctamente</message>"
-				+ "<participant>carmen@yahoo.com</participant></ChangeInfoResponse>";
+				+ "<agent>carmen@yahoo.com</agent></ChangeInfoResponse>";
 
 		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
 		interceptors.add(new AcceptInterceptor());
