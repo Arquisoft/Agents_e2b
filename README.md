@@ -12,7 +12,7 @@ Agents module
 
 - Fernando Sánchez Canella (UO252469)
 - Pelayo Rodriguez Garcia (UO251634)
-- Jorge Rionda ()
+- Jorge Rionda (UO245934)
 
 # Authors 2017
 
