@@ -17,20 +17,20 @@ public class Agent {
 	@GeneratedValue
 	private Long id;
 
-	// Atributos del agente
+	// Nombres y apellidos en caso de persona
 	private String nombre;
-	private String apellidos;
-	private String password;
-	private Date fechaNacimiento;
+	// Opcional personas e identidades
+	private String localizacion;
 	@Column(unique = true)
 	private String email;
-	@Column(unique = true)
-	private String DNI;
-	private String direccion;
-	private String nacionalidad;
 
-	private boolean isAdmin;
-	private boolean isPolitician;
+	// CIF en caso de persona
+	@Column(unique = true)
+	private String ident;
+
+	private String password;
+
+	private Integer kind;
 
 	/**
 	 * Constructor vacío (ya que es para mapear)
@@ -54,15 +54,10 @@ public class Agent {
 			String direccion, String nacionalidad, boolean isAdmin, boolean isPolitician) {
 		super();
 		this.nombre = nombre;
-		this.apellidos = apellidos;
+
 		this.password = password;
-		this.fechaNacimiento = fechaNacimiento;
+
 		this.email = email;
-		this.DNI = dNI;
-		this.direccion = direccion;
-		this.nacionalidad = nacionalidad;
-		this.isAdmin = isAdmin;
-		this.isPolitician = isPolitician;
 	}
 
 	public Long getId() {
@@ -73,20 +68,12 @@ public class Agent {
 		return nombre;
 	}
 
-	public String getApellidos() {
-		return apellidos;
-	}
-
 	public String getPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
 	}
 
 	public String getEmail() {
@@ -97,32 +84,21 @@ public class Agent {
 		this.email = email;
 	}
 
-	public String getDNI() {
-		return DNI;
+	public String getLocalizacion() {
+		return localizacion;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getIdent() {
+		return ident;
+	}
+	
+	public String getKind(){
+		//Temporal
+		return String.valueOf(getKindCode());
 	}
 
-	public String getNacionalidad() {
-		return nacionalidad;
-	}
-
-	public boolean isAdmin() {
-		return isAdmin;
-	}
-
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-
-	public boolean isPolitician() {
-		return isPolitician;
-	}
-
-	public void setPolitician(boolean isPolitician) {
-		this.isPolitician = isPolitician;
+	public Integer getKindCode() {
+		return kind;
 	}
 
 	@Override
@@ -152,9 +128,8 @@ public class Agent {
 
 	@Override
 	public String toString() {
-		return "Agent [nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento=" + fechaNacimiento + ", email=" + email + ", DNI=" + DNI + ", direccion="
-				+ direccion + ", nacionalidad=" + nacionalidad + ", isAdmin=" + isAdmin + ", isPolitician="
-				+ isPolitician + "]";
+		return "Agent [id=" + id + ", nombre=" + nombre + ", localizacion=" + localizacion + ", email=" + email
+				+ ", ident=" + ident + ", password=" + password + ", kind=" + kind + "]";
 	}
 
 }
