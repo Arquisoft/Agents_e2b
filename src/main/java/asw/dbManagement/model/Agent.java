@@ -1,14 +1,38 @@
 package asw.dbManagement.model;
 
+import java.io.IOException;
+import java.util.Map;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import asw.agents.util.Utilidades;
+
 @Entity
 @Table(name = "Agent")
 public class Agent {
+	
+	
+	private static Map<String, String> kindValues;
+	
+	
+	private static String getKind(String key) {
+		if(kindValues == null) {
+			try {
+				kindValues = Utilidades.read("src/main/resources/users.csv");
+			} catch (IOException e) {
+				e.printStackTrace();
+				return key;
+			}
+		}
+		String v = kindValues.get(key);
+		return v == null? key : v;
+		
+		
+	}
 
 	// Id generado automáticamente para diferenciar cada uno (para mapear)
 	@Id
@@ -89,7 +113,7 @@ public class Agent {
 	
 	public String getKind(){
 		//Temporal
-		return String.valueOf(getKindCode());
+		return getKind(String.valueOf(getKindCode()));
 	}
 
 	public Integer getKindCode() {

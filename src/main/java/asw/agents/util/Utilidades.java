@@ -1,7 +1,14 @@
 package asw.agents.util;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.opencsv.CSVReader;
 
 
 public  class Utilidades {
@@ -45,6 +52,23 @@ public  class Utilidades {
 
 		}
 
+	}
+	
+	public static Map<String, String> read(String file) throws IOException {
+		CSVReader reader = null;
+		Map<String, String> map = new HashMap<String, String>();
+
+		reader = new CSVReader(new FileReader(file));
+
+		List<String[]> datos = reader.readAll();
+
+		for (String[] linea : datos) {
+			map.put(linea[0], linea[1]);
+		}
+
+		reader.close();
+
+		return map;
 	}
 
 }
