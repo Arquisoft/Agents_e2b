@@ -40,7 +40,6 @@ public class GetAgentInfoRESTController implements GetAgentInfo {
 
 		Assert.isPasswordCorrect(peticion.getPassword(), agent);
 		Assert.isKindCorrect(peticion.getKind(), agent);
-
 		/*
 		 * Añadimos la información al modelo, para que se muestre en la pagina
 		 * html: datosAgent

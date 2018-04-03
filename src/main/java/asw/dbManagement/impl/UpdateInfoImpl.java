@@ -10,12 +10,9 @@ import asw.dbManagement.repository.AgentRepository;
 @Service
 public class UpdateInfoImpl implements UpdateInfo {
 
-	private AgentRepository repository;
-	
 	@Autowired
-	public UpdateInfoImpl(AgentRepository repository) {
-		this.repository = repository;
-	}
+	private AgentRepository repository;
+
 	
 	/**
 	 * Método que permite la actualización de la contraseña del agente

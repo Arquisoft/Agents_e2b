@@ -83,7 +83,7 @@ public class Assert {
 	}
 
 	public static boolean isKindCorrect(String kind, Agent agent) {
-		if (!kind.equals(agent.getKind())) {
+		if (!kind.equals(String.valueOf(agent.getKindCode()))) {
 			throw ErrorFactory.getError(Errors.INCORRECT_KIND_DO_NOT_MATCH);
 		}
 		return true;
