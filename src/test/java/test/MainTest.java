@@ -81,7 +81,7 @@ public class MainTest {
 		Agent agent1 = getAgent.getAgent("paco@hotmail.com");
 		assertEquals(agent1.toString(),
 				"Agent [id=" + agent1.getId() + ", nombre=" + agent1.getNombre() + ", localizacion=" + agent1.getLocalizacion() + ", email=" + agent1.getEmail()
-				+ ", ident=" + agent1.getIdent() + ", password=" + agent1.getPassword() + ", kind=" + agent1.getKind() + "]");
+				+ ", ident=" + agent1.getIdent() + ", password=" + agent1.getPassword() + ", kind=" + agent1.getKindCode() + "]");
 	}
 
 	@Test
@@ -98,15 +98,15 @@ public class MainTest {
 
 		response = template.postForEntity(userURI, new PeticionInfoREST("paco@hotmail.com", "123456","1"), String.class);
 		assertThat(response.getBody(), equalTo(
-				"{\"name\":\"Paco Gómez\",\"location\":\"41,40338, 2,17403\",\"email\":\"paco@hotmail.com\",\"id\":\"12345678A\",\"kind\":\"1\",\"kindCode\":1}"));
+				"{\"name\":\"Paco Gómez\",\"location\":\"41,40338, 2,17403\",\"email\":\"paco@hotmail.com\",\"id\":\"12345678A\",\"kind\":\"Person\",\"kindCode\":1}"));
 
 		response = template.postForEntity(userURI, new PeticionInfoREST("pepe@gmail.com", "123456","1"), String.class);
 		assertThat(response.getBody(), equalTo(
-				"{\"name\":\"Pepe Fernández\",\"location\":\"4,45328, 2,17403\",\"email\":\"pepe@gmail.com\",\"id\":\"87654321B\",\"kind\":\"1\",\"kindCode\":1}"));
+				"{\"name\":\"Pepe Fernández\",\"location\":\"4,45328, 2,17403\",\"email\":\"pepe@gmail.com\",\"id\":\"87654321B\",\"kind\":\"Person\",\"kindCode\":1}"));
 
 		response = template.postForEntity(userURI, new PeticionInfoREST("carmen@yahoo.com", "123456","1"), String.class);
 		assertThat(response.getBody(), equalTo(
-				"{\"name\":\"Carmen López\",\"location\":\"12,4338, 2,17403\",\"email\":\"carmen@yahoo.com\",\"id\":\"11223344C\",\"kind\":\"1\",\"kindCode\":1}"));
+				"{\"name\":\"Carmen López\",\"location\":\"12,4338, 2,17403\",\"email\":\"carmen@yahoo.com\",\"id\":\"11223344C\",\"kind\":\"Person\",\"kindCode\":1}"));
 	}
 
 	@Test
